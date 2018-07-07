@@ -1,5 +1,5 @@
 {
-  "name": "Coinbase Candle Size",
+  "name": "candle-size",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
