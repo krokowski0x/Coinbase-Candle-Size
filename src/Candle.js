@@ -1,9 +1,12 @@
 import React from 'react';
 import './Candle.css';
 
-const Candle = ({ time, low, high, open, close }) => {
-  let height = (high - low) / 100;
-  if (height > 500) height = 500;
+const Candle = ({ time, low, high, open, close, max, min }) => {
+  low = normalize(low, max, min);
+  high = normalize(high, max, min);
+  open = normalize(open, max, min);
+  close = normalize(close, max, min);
+
   return (
     <svg
       width="20"
@@ -13,16 +16,19 @@ const Candle = ({ time, low, high, open, close }) => {
         x1="10"
         y1="0"
         x2="10"
-        y2={height}
+        y2={Math.floor(high - low)}
         stroke="black"
       />
       <rect
+        y={high - (open > close ? open : close)}
         className="Candle"
         width='20'
-        height={Math.abs(open - close) / 100}
+        height={Math.abs(open - close)}
       />
     </svg>
   );
-}
+};
+
+const normalize = (value, max, min) => ((value - min) / (max - min) * 500);
 
 export default Candle;
