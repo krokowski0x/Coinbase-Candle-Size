@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Candle from './Candle.js'
-import './CandleChart.css';
 
 const APIURL = 'https://api-public.sandbox.pro.coinbase.com/products/';
 
