@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "Candle Size Indicator",
+  "description": "Adds Candle Size Indicator utility to Coinbase Pro",
+  "version": "1.0",
+  "applications": {
+    "gecko": {
+      "strict_min_version": "54.0a1"
+    }
+  },
+
+  "sidebar_action": {
+    "default_title" : "Candle Size",
+    "default_panel": "public/index.html"
+  },
+
+  "permissions": ["storage", "tabs"],
+
+  "commands": {
+    "_execute_sidebar_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y"
+      }
+    }
+  }
+}
