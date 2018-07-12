@@ -1,8 +1,7 @@
 import React from 'react';
-import './Candle.css';
 
 const Candle = ({ time, low, high, open, close, max, min }) => {
-  const color = (open - close) > 0 ? "green" : "red";
+  const color = (open - close) > 0 ? "red" : "green";
 
   low = normalize(low, max, min);
   high = normalize(high, max, min);
@@ -16,14 +15,14 @@ const Candle = ({ time, low, high, open, close, max, min }) => {
     >
       <line
         x1="10"
-        y1="0"
+        y1={high}
         x2="10"
-        y2={Math.floor(high - low)}
+        y2={low}
         stroke={color}
       />
       <rect
         fill={color}
-        y={high - (open > close ? open : close)}
+        y={open > close ? open : close}
         className="Candle"
         width='20'
         height={Math.abs(open - close)}
@@ -32,6 +31,6 @@ const Candle = ({ time, low, high, open, close, max, min }) => {
   );
 };
 
-const normalize = (value, max, min) => ((value - min) / (max - min) * 500);
+const normalize = (value, max, min) => Math.floor((value - min) / (max - min) * 500);
 
 export default Candle;
