@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
-import Candle from './Candle.js'
+import Toggle from 'react-toggle';
+import "react-toggle/style.css"
 
 const APIURL = 'https://api-public.sandbox.pro.coinbase.com/products/';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
+    this.toggleCandleSize = (event) => {
+      event.target.checked
+      ? document.body.style.border = "5px solid red"
+      : document.body.style.border = "";
+      this.setState({ candleSize: event.target.checked });
+    };
     this.state = {
+      candleSize: false,
       candles: [],
       currency: 'BTC',
       baseCurrency: 'USD',
@@ -37,15 +45,20 @@ export default class App extends Component {
   };
 
   render() {
-    const { candles, currency, baseCurrency, max, min } = this.state;
+    const { candleSize } = this.state;
 
     return (
       <div className="App">
         <header></header>
         <main>
-          <button>Click me!</button>
-          <button>Click me!</button>
-          <button>Click me!</button>
+          <label>
+            <Toggle
+              checked={candleSize}
+              defaultChecked={candleSize}
+              onChange={this.toggleCandleSize}
+            />
+            <span>Candle Size</span>
+          </label>
         </main>
         <footer></footer>
       </div>
