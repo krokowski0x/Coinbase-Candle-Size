@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Toggle from 'react-toggle';
+import { CandleSizeIndicator } from './CandleSizeIndicator.js';
 import "react-toggle/style.css"
 
 const APIURL = 'https://api-public.sandbox.pro.coinbase.com/products/';
@@ -7,12 +8,7 @@ const APIURL = 'https://api-public.sandbox.pro.coinbase.com/products/';
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.toggleCandleSize = (event) => {
-      event.target.checked
-      ? document.body.style.border = "5px solid red"
-      : document.body.style.border = "";
-      this.setState({ candleSize: event.target.checked });
-    };
+    this.toggleCandleSize = CandleSizeIndicator.bind(this);
     this.state = {
       candleSize: false,
       candles: [],
