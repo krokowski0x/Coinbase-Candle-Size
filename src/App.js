@@ -30,7 +30,7 @@ export default class App extends Component {
     candles.forEach(candle => {
       if (candle[1] < min) min = candle[1];
       if (candle[2] > max) max = candle[2];
-    })
+    });
     this.setState({ candles, max, min })
   };
 
@@ -38,9 +38,9 @@ export default class App extends Component {
     const { currency, baseCurrency } = this.state;
 
     fetch(`${APIURL}${currency}-${baseCurrency}/candles?granularity=3600`)
-    .then(res => res.json())
-    .then(candles => this.filterOutWeirdCandles(candles))
-    .then(candles => this.getPriceBoundries(candles));
+      .then(res => res.json())
+      .then(candles => this.filterOutWeirdCandles(candles))
+      .then(candles => this.getPriceBoundries(candles));
   };
 
   render() {
