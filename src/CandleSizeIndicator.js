@@ -1,3 +1,3 @@
-export const CandleSizeIndicator = (event) => {
-  return;
+export const CandleSizeIndicator = event => {
+	return;
 };
