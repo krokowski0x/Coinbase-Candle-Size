@@ -1,6 +1,6 @@
 # Coinbase Candle Size Indicator
 
-This project aims to add popular Candle Size Indicator utility to [Coinbase Pro](https://pro.coinbase.com/) via Chrome extension.
+This project aimed to add popular Candle Size Indicator utility to [Coinbase Pro](https://pro.coinbase.com/) via Chrome Extension, but due to more significant projects, I'm currently not working on it. But I will. Some day in 2019.
 
 ## Brief description
 
